@@ -1,4 +1,4 @@
-/* Import the 'Roboto' font from Google Fonts */
+/* Importing the 'Roboto' font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 /* Reset box-sizing and define global styles */
@@ -194,9 +194,6 @@ button {
 }
 
 
-/* ClueButton.css */
-
-/* Set the container to a relative position to position the clue text */
 /* Style for the "I need help" button container */
 .clue-container {
   position: relative; /* Relative positioning to contain the absolute positioning of text */
@@ -229,9 +226,47 @@ button {
 }
 
 
+/*------------VIRTUAL KEYBOARDS--------------------*/
+.virtual-keyboard {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* Adjust the number of columns as needed */
+  gap: 5px; /* Adjust the gap between keys as needed */
+}
+
+/* Style for individual keys */
+.virtual-keyboard button {
+  cursor: pointer;
+  background-color: black;
+  color: whitesmoke;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px 5px; /* Adjust padding as needed */
+  font-size: 12px; /* Adjust font size as needed */
+}
 
 
+/* Media query for screens smaller or equal to 768 pixels */
+@media (max-width: 768px) {
+  .game-container {
+    height: 250px; /* Adjust the height for smaller screens */
+    width: 300px; /* Adjust the width for smaller screens */
+  }
 
+  /* Additional styles for other elements if needed */
+  /* For example, reducing font sizes or margins */
+  .word {
+    font-size: 20px;
+  }
 
+  .letter {
+    font-size: 30px;
+    height: 40px;
+    width: 25px;
+  }
 
+  .clue-container {
+    position: absolute; /* Relative positioning to contain the absolute positioning of text */
+    margin-top: 750px; /* Space above the button */
+  }
+}
 

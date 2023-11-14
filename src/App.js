@@ -7,6 +7,7 @@ import { showNotification as show } from "./helpers/helpers"; // Renaming import
 import Notification from "./components/Notification";
 import PopUp from "./components/PopUp";
 import ClueButton from "./components/ClueButton";
+import VirtualKeyboard from "./components/virtualKeyBoard";
 
 import './App.css';
 
@@ -43,6 +44,16 @@ function App() {
   const [correctLetters, setCorrectLetters] = useState([]); // Correctly guessed letters
   const [wrongLetters, setWrongLetters] = useState([]); // Incorrectly guessed letters
   const [showNotification, setShowNotification] = useState(false); // Show notification flag
+  const [isPhone, setIsPhone] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsPhone(window.innerWidth <= 768);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
 
   // useEffect to handle keyboard events
   useEffect(() => {
@@ -122,9 +133,33 @@ function App() {
       {/* Display the ClueButton component with the selectedWord prop */}
       
       <ClueButton word={selectedWord} />
+      {isPhone && ( <VirtualKeyboard
+        playable={playable}
+        correctLetters={correctLetters}
+        wrongLetters={wrongLetters}
+        onKeyPress={(letter) => {
+          if (selectedWord.includes(letter)) {
+            if (!correctLetters.includes(letter)) {
+              // Update correctLetters array with the new letter
+              setCorrectLetters((currentLetters) => [...currentLetters, letter]);
+            } else {
+              // Show a notification when the correct letter is pressed again
+              show(setShowNotification);
+            }
+          } else {
+            if (!wrongLetters.includes(letter)) {
+              // Update wrongLetters array with the new letter
+              setWrongLetters((currentLetters) => [...currentLetters, letter]);
+            } else {
+              // Show a notification when the wrong letter is pressed again
+              show(setShowNotification);
+            }
+          }
+        }}
+      />
+      )}
     </>
   );
-  
 }
 
 export default App;
