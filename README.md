@@ -1,12 +1,15 @@
-# Hangman Game
+# HANGMAN GAME
 
 Welcome to the Hangman Game! This project is built using React.
 
-**Click on the [link](https://desolate-castle-27933-0d76e4d64545.herokuapp.com/) to play online!**
+![Game on a phone device](/screenshots/hangman.png)
 
-## Getting Started
+
+# GETTING STARTED
 
 Follow these steps to run the Hangman Game app on your local machine:
+
+![Game on a browser](/screenshots/hangman-game.png)
 
 1. Clone this repository to your local machine using Git.
 
@@ -18,7 +21,7 @@ Follow these steps to run the Hangman Game app on your local machine:
 
    git clone git@github.com:thekain9/hangman.git
 
-## Available Scripts
+# AVAILABLE SCRIPS
 
 In the project directory, you can run:
 
@@ -39,6 +42,10 @@ You may also see any lint errors in the console.
 3. Open your web browser and go to http://localhost:3000 to play the Hangman Game.
 4. The page will automatically reload if you make changes to the source code. Any errors will be displayed in the console.
 
-If you appericate this amazing project, kindly leave a ⭐ by clicking on the star button on the top right.
-Thank you!
+
+# CONCLUSION
+
+Prepare for a thrilling challenge as you dive into the Hangman Game. Will you emerge victorious, or will the hangman claim another victim?
+
+![Lost game](/screenshots/hangman-lost.png)
 
